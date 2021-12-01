@@ -1,15 +1,14 @@
 import axios from 'axios';
-import env from '@/config/env';
 
 let apiUtil = {
 
 };
 
-const ajaxUrl = env === 'development' ?
-    'http://127.0.0.1:8888' :
-    env === 'production' ?
-    'https://www.url.com' :
-    'http://localhost:9010';
+const ajaxUrl = process.env.NODE_ENV === 'development' ?
+    'http://localhost:8010' :
+    process.env.NODE_ENV === 'production' ?
+    'https://dev.xbcmz.top/vue2-demo-api' :
+    'http://localhost:8080';
 
 apiUtil.ajax = axios.create({
     baseURL: ajaxUrl,
